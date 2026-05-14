@@ -9,7 +9,6 @@ export const getAllPatients = async (req: Request, res: Response) => {
     const result = await AppDataSource.getRepository(Patients).find({
       where: search ? { fio: Like(`%${search}%`) } : {},
     });
-    console.log(search, "search");
 
     res.status(200).json({ message: "done", result: result });
   } catch (error) {
