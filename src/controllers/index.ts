@@ -2,3 +2,8 @@ export * from "./users.controller";
 export * from "./patients.controller";
 export * from "./drugs.controller";
 export * from "./doctors.controller";
+export * from "./doses.controller";
+export * from "./durations.controller";
+export * from "./frequencyes.controller";
+export * from "./mealTimings.controller";
+export * from "./quantityes.controller";

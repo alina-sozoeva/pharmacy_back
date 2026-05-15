@@ -14,9 +14,6 @@ export class Drugs {
   @ManyToOne(() => DrugForms)
   form: DrugForms;
 
-  @ManyToOne(() => Doses)
-  dose: Doses;
-
   @ManyToOne(() => Methods)
   method: Methods;
 }

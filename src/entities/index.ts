@@ -6,3 +6,7 @@ export * from "./Doses";
 export * from "./Drugs";
 export * from "./Clinics";
 export * from "./Doctors";
+export * from "./Quantityes";
+export * from "./Durations";
+export * from "./Frequencyes";
+export * from "./MealTimings";

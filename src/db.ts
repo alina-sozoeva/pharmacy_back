@@ -5,8 +5,12 @@ import {
   Doses,
   DrugForms,
   Drugs,
+  Durations,
+  Frequencyes,
+  MealTimings,
   Methods,
   Patients,
+  Quantityes,
   Users,
 } from "./entities";
 
@@ -25,6 +29,10 @@ export const AppDataSource = new DataSource({
     Methods,
     Doctors,
     Clinics,
+    Durations,
+    Frequencyes,
+    MealTimings,
+    Quantityes,
   ],
   synchronize: true,
 });

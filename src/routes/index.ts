@@ -2,3 +2,8 @@ export * from "./users.routes";
 export * from "./patients.routes";
 export * from "./drugs.routes";
 export * from "./doctors.routes";
+export * from "./doses.routes";
+export * from "./durations.routes";
+export * from "./frequencyes.routes";
+export * from "./mealTimings.routes";
+export * from "./quantityes.routes";

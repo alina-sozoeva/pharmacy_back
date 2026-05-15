@@ -8,7 +8,7 @@ export const getAllDrugs = async (req: Request, res: Response) => {
     const { search } = req.query;
     const result = await AppDataSource.getRepository(Drugs).find({
       where: search ? { nameid: Like(`%${search}%`) } : {},
-      relations: ["form", "dose", "method"],
+      relations: ["form", "method"],
     });
     res.status(200).json({ message: "done", result: result });
   } catch (error) {
