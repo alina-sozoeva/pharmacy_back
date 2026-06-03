@@ -7,3 +7,5 @@ export * from "./durations.routes";
 export * from "./frequencyes.routes";
 export * from "./mealTimings.routes";
 export * from "./quantityes.routes";
+export * from "./clinics.routes";
+export * from "./auth.routes";

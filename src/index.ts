@@ -1,6 +1,8 @@
 import cors from "cors";
 import express from "express";
 import {
+  authRouter,
+  clinicsRouter,
   doctorsRouter,
   dosesRouter,
   drugsRouter,
@@ -11,7 +13,6 @@ import {
   quantityesRouter,
   usersRouter,
 } from "./routes";
-import { getAllDurations } from "./controllers";
 
 const app = express();
 
@@ -31,5 +32,7 @@ app.use("/durations", durationsRouter);
 app.use("/frequencyes", frequencyesRouter);
 app.use("/mealTimings", mealTimingsRouter);
 app.use("/quantityes", quantityesRouter);
+app.use("/clinics", clinicsRouter);
+app.use("/auth", authRouter);
 
 export default app;

@@ -1,6 +1,7 @@
 import { Router } from "express";
-import { getAllDoctors } from "../controllers";
+import { createDoctor, getAllDoctors } from "../controllers";
 
 export const doctorsRouter = Router();
 
 doctorsRouter.get("/", getAllDoctors);
+doctorsRouter.post("/", createDoctor);

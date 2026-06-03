@@ -7,3 +7,5 @@ export * from "./durations.controller";
 export * from "./frequencyes.controller";
 export * from "./mealTimings.controller";
 export * from "./quantityes.controller";
+export * from "./clinics.controller";
+export * from "./auth.controller";
