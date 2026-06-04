@@ -10,3 +10,5 @@ export * from "./Quantityes";
 export * from "./Durations";
 export * from "./Frequencyes";
 export * from "./MealTimings";
+export * from "./Prescriptions";
+export * from "./PrescriptionItems";

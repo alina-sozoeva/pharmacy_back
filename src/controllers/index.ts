@@ -9,3 +9,5 @@ export * from "./mealTimings.controller";
 export * from "./quantityes.controller";
 export * from "./clinics.controller";
 export * from "./auth.controller";
+export * from "./prescriptions.controller";
+export * from "./prescriptionItems.controller";
