@@ -21,7 +21,7 @@ export class PrescriptionItems {
   @ManyToOne(() => Drugs)
   drug: Drugs;
 
-  @ManyToOne(() => Prescriptions)
+  @ManyToOne(() => Prescriptions, (prescription) => prescription.items)
   prescription: Prescriptions;
 
   @ManyToOne(() => Frequencyes)

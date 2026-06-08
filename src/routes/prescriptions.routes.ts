@@ -1,6 +1,7 @@
 import { Router } from "express";
-import { getAllPrescriptions } from "../controllers";
+import { createPrescription, getAllPrescriptions } from "../controllers";
 
 export const prescriptionsRouter = Router();
 
 prescriptionsRouter.get("/", getAllPrescriptions);
+prescriptionsRouter.post("/", createPrescription);

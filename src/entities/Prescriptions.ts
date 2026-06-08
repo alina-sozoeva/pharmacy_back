@@ -3,10 +3,12 @@ import {
   CreateDateColumn,
   Entity,
   ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
 } from "typeorm";
 import { Doctors } from "./Doctors";
 import { Patients } from "./Patients";
+import { PrescriptionItems } from "./PrescriptionItems";
 
 @Entity()
 export class Prescriptions {
@@ -21,4 +23,7 @@ export class Prescriptions {
 
   @CreateDateColumn({ type: "timestamp" })
   created_at: Date;
+
+  @OneToMany(() => PrescriptionItems, (item) => item.prescription)
+  items: PrescriptionItems[];
 }

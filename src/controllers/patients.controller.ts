@@ -5,10 +5,14 @@ import { Like } from "typeorm";
 
 export const getAllPatients = async (req: Request, res: Response) => {
   try {
-    const { search } = req.query;
-    const result = await AppDataSource.getRepository(Patients).find({
-      where: search ? { fio: Like(`%${search}%`) } : {},
-    });
+    const { search, guid } = req.query;
+
+    const where = {
+      ...(guid && { guid: guid as string }),
+      ...(search && { fio: Like(`%${search}%`) }),
+    };
+
+    const result = await AppDataSource.getRepository(Patients).find({ where });
 
     res.status(200).json({ message: "done", result: result });
   } catch (error) {
