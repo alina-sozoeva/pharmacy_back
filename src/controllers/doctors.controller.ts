@@ -3,7 +3,6 @@ import { AppDataSource } from "../db";
 import { Doctors } from "../entities";
 import "dotenv/config";
 import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
 
 export const getAllDoctors = async (req: Request, res: Response) => {
   try {
