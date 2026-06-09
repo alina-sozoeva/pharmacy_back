@@ -15,6 +15,9 @@ export class Prescriptions {
   @PrimaryGeneratedColumn("uuid")
   guid: string;
 
+  @Column({ type: "integer", default: 0 })
+  status: number;
+
   @ManyToOne(() => Doctors)
   doctor: Doctors;
 
