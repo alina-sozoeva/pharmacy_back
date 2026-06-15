@@ -5,14 +5,17 @@ import { Like } from "typeorm";
 
 export const getAllPatients = async (req: Request, res: Response) => {
   try {
-    const { search, guid } = req.query;
+    const { search, guid, order } = req.query;
 
     const where = {
       ...(guid && { guid: guid as string }),
       ...(search && { fio: Like(`%${search}%`) }),
     };
 
-    const result = await AppDataSource.getRepository(Patients).find({ where });
+    const result = await AppDataSource.getRepository(Patients).find({
+      where,
+      order: { created_at: (order as "ASC" | "DESC") || "DESC" },
+    });
 
     res.status(200).json({ message: "done", result: result });
   } catch (error) {
@@ -25,8 +28,8 @@ export const createPatient = async (req: Request, res: Response) => {
   try {
     const getRepository = AppDataSource.getRepository(Patients);
     const newPatient = getRepository.create(req.body);
-    await getRepository.save(newPatient);
-    res.status(201).json({ message: "create" });
+    const result = await getRepository.save(newPatient);
+    res.status(201).json({ message: "create", result: result });
   } catch (error) {
     console.log(error, "error");
     res.status(500).json({ message: "error", result: error });
