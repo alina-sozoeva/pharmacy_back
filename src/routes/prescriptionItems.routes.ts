@@ -3,8 +3,9 @@ import {
   createPrescriptionItem,
   getAllPrescriptionItems,
 } from "../controllers";
+import { authMiddleware } from "../middleware";
 
 export const prescriptionItemsRouter = Router();
 
-prescriptionItemsRouter.get("/", getAllPrescriptionItems);
-prescriptionItemsRouter.post("/", createPrescriptionItem);
+prescriptionItemsRouter.get("/", authMiddleware, getAllPrescriptionItems);
+prescriptionItemsRouter.post("/", authMiddleware, createPrescriptionItem);

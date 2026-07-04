@@ -10,6 +10,7 @@ import {
   MealTimings,
   Methods,
   Patients,
+  Pharmacies,
   PrescriptionItems,
   Prescriptions,
   Quantityes,
@@ -39,6 +40,7 @@ export const AppDataSource = new DataSource({
     Quantityes,
     Prescriptions,
     PrescriptionItems,
+    Pharmacies,
   ],
   synchronize: true,
 });

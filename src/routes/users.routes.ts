@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { getAllUsers } from "../controllers";
+import { authMiddleware } from "../middleware";
 
 export const usersRouter = Router();
 
-usersRouter.get("/", getAllUsers);
+usersRouter.get("/", authMiddleware, getAllUsers);

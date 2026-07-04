@@ -11,3 +11,5 @@ export * from "./clinics.routes";
 export * from "./auth.routes";
 export * from "./prescriptions.routes";
 export * from "./prescriptionItems.routes";
+export * from "./pharmacies.routes";
+export * from "./aiRouter.routes";

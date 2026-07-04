@@ -1,6 +1,7 @@
 import { Router } from "express";
-import { loginDoctor } from "../controllers";
+import { loginDoctor, loginPharmacies } from "../controllers";
 
 export const authRouter = Router();
 
 authRouter.post("/", loginDoctor);
+authRouter.post("/login-pharmacies", loginPharmacies);

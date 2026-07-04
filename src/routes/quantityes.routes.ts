@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { getAllQuantityes } from "../controllers";
+import { authMiddleware } from "../middleware";
 
 export const quantityesRouter = Router();
 
-quantityesRouter.get("/", getAllQuantityes);
+quantityesRouter.get("/", authMiddleware, getAllQuantityes);

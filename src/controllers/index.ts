@@ -11,3 +11,5 @@ export * from "./clinics.controller";
 export * from "./auth.controller";
 export * from "./prescriptions.controller";
 export * from "./prescriptionItems.controller";
+export * from "./pharmacies.controller";
+export * from "./aiController.controller";
