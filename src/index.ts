@@ -4,6 +4,7 @@ import {
   aiRouter,
   authRouter,
   clinicsRouter,
+  diagnosisRouter,
   doctorsRouter,
   dosesRouter,
   drugsRouter,
@@ -44,5 +45,6 @@ app.use("/prescriptions", prescriptionsRouter);
 app.use("/prescription-items", prescriptionItemsRouter);
 app.use("/pharmacies", pharmaciesRouter);
 app.use("/suggest", aiRouter);
+app.use("/diagnosis", diagnosisRouter);
 
 export default app;

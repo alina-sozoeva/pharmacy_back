@@ -13,3 +13,4 @@ export * from "./MealTimings";
 export * from "./Prescriptions";
 export * from "./PrescriptionItems";
 export * from "./Pharmacies";
+export * from "./Diagnosis";

@@ -1,6 +1,13 @@
 import { json, Request, Response } from "express";
 import { AppDataSource } from "../db";
-import { Doses, Drugs, Durations, Frequencyes, MealTimings } from "../entities";
+import {
+  Diagnosis,
+  Doses,
+  Drugs,
+  Durations,
+  Frequencyes,
+  MealTimings,
+} from "../entities";
 
 const arrayToMap = (arr: any, key: string) => {
   return arr.reduce((acc: any, item: any) => {
@@ -11,17 +18,25 @@ const arrayToMap = (arr: any, key: string) => {
 
 export const suggestPrescription = async (req: Request, res: Response) => {
   try {
-    const { diagnosis } = req.body;
+    const { diagnosisCodeid } = req.body;
 
+    const diagnosis = await AppDataSource.getRepository(Diagnosis).find();
     const drugs = await AppDataSource.getRepository(Drugs).find();
     const doses = await AppDataSource.getRepository(Doses).find();
     const frequencyes = await AppDataSource.getRepository(Frequencyes).find();
     const durations = await AppDataSource.getRepository(Durations).find();
     const meal_timings = await AppDataSource.getRepository(MealTimings).find();
 
+    const diagnosisMap = arrayToMap(diagnosis, "codeid");
+    const findDiagnosis = diagnosisMap[diagnosisCodeid];
+
+    if (!findDiagnosis) {
+      return res.json({ message: "Нет метода лечения" });
+    }
+
     const prompt = `Ты медицинский ассистент. Тебе нужно предложить схему лечения.
 
-    Диагноз: ${diagnosis}
+    Диагноз: ${findDiagnosis.name}
 
     Доступные препараты: ${JSON.stringify(drugs.map((d) => ({ guid: d.guid, name: d.nameid })))}
     Доступные дозировки: ${JSON.stringify(doses.map((d) => ({ codeid: d.codeid, title: d.title })))}
@@ -77,7 +92,6 @@ export const suggestPrescription = async (req: Request, res: Response) => {
       meal_timing_codeid: meal_timingsMap[item.meal_timing_codeid],
     }));
 
-    console.log(finishArr, "finishArr");
     res.status(200).json({ message: "ok", result: finishArr });
   } catch (error) {
     console.log(error, "error");

@@ -1,6 +1,7 @@
 import { DataSource } from "typeorm";
 import {
   Clinics,
+  Diagnosis,
   Doctors,
   Doses,
   DrugForms,
@@ -41,6 +42,7 @@ export const AppDataSource = new DataSource({
     Prescriptions,
     PrescriptionItems,
     Pharmacies,
+    Diagnosis,
   ],
   synchronize: true,
 });
